@@ -1,28 +1,28 @@
 <html>
     <head>
-        <title>Daftar Layanan Rumah Sakit</title>
+        <title> Data Pasien</title>
     </head>
 
     <?php
-        $conn = mysqli_connect('localhost','root','','rumahSakit');
+        $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
     ?>
 
     <body>
-        <center>
-            <h3>Daftar Status Layanan Rumah Sakit Permata</h3>
+    <center>
+            <h3>Data Pasien Rumah Sakit Permata</h3>
             <hr><br>
             <table border="1" width="70%" style="text-align: center;">
                 <tr>
                     <td width="20%">Id</td>
                     <td width="20%">Nama Pasien</td>
-                    <td width="20%">Nama Dokter</td>
+                    <td width="20%">jenis Kelamin</td>
+                    <td width="20%">Umur</td>
                     <td width="20%">Keluhan</td>
                     <td width="20%">Ruang</td>
-                    <td width="20%">Tanggal Masuk</td>
-                    <td width="20%">Tanggal Keluar</td>
+                    <td width="20%">Almaat</td>
                 </tr>
                 <?php
-                    $query = "select * from layanan";
+                    $query = "select * from pasien";
                     $hasil = mysqli_query($conn, $query);
                 ?>
                 <?php
@@ -37,6 +37,10 @@
                         <td><?= $data[5] ?></td>
                         <td><?= $data[6] ?></td>
                     </tr>
+                    <td>
+                        <a href=#>Ubah Data</a> |
+                        <a href=#>Hapus Data</a>
+                    </td>
                 <?php } ?>
             </table>
         </center>

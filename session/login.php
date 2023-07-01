@@ -1,8 +1,8 @@
 <form method='post' action='login.php'>
-    <center><h2>Login</h2>
+    <center class="login-content"><h2>Login</h2>
         <p align='center'>
-        username : <input type='text' name='username'><br>
-        password : <input type='password' name='password'><br>
+        username : <input type='text' name='username' class="username"><br>
+        password : <input type='password' name='password' class="passworrd"><br>
         <input type='submit' name='submit'>
         </p>
     </center>

@@ -1,10 +1,25 @@
 <?php
 $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
 ?>
+
 <body> 
         <h1 style="text-align: center;">Admin Page</h1>
     <hr>
     <br>
+    <center>
+        <form>
+            <table>
+                <tr>
+                    <td><button>
+                        <a target="_blank" href="pasien.php">Data Pasien</a>
+                    </button></td>
+                    <td><button>
+                        <a target="_blank" href="layanan.php">Data Layanan</a>
+                    </button></td>
+                </tr>
+            </table>
+        </form>
+    </center>
     <center>
         <h3>Data User</h3>
             <table border='1' width='70%' style="text-align: center;">
@@ -16,7 +31,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
                     <td width='30%'><b>Pilihan</b></td>
                 </tr>
                 <?php 
-                    $tampil = "SELECT * FROM user";
+                    $tampil = "SELECT * FROM user WHERE username = 'member' ";
                     $hasil = mysqli_query($conn, $tampil);
                 ?>
                 <?php 
@@ -40,6 +55,5 @@ $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
 <head>
     <title>Admin</title>
 </head>
-<p align='center'><button><a href="tugas_logout.php"> Logout </a></button></p>
 </body>
 </html>

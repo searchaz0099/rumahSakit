@@ -37,6 +37,10 @@
                         <td><?= $data[5] ?></td>
                         <td><?= $data[6] ?></td>
                     </tr>
+                    <td>
+                        <a href=#>Ubah Data</a> |
+                        <a href=#>Hapus Data</a>
+                    </td>
                 <?php } ?>
             </table>
         </center>
