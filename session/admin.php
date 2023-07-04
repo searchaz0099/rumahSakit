@@ -31,7 +31,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
                     <td width='30%'><b>Pilihan</b></td>
                 </tr>
                 <?php 
-                    $tampil = "SELECT * FROM user WHERE username = 'member' ";
+                    $tampil = "SELECT * FROM user WHERE status = 'member' ";
                     $hasil = mysqli_query($conn, $tampil);
                 ?>
                 <?php 
