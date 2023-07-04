@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2023 at 05:23 PM
+-- Generation Time: Jul 04, 2023 at 09:50 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -97,7 +97,7 @@ INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `jenis_kelamin`, `umur`, `alam
 --
 
 CREATE TABLE `user` (
-  `username` varchar(12) NOT NULL,
+  `email` varchar(25) NOT NULL,
   `password` varchar(12) NOT NULL,
   `nama` varchar(25) NOT NULL,
   `status` varchar(13) NOT NULL
@@ -107,9 +107,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`username`, `password`, `nama`, `status`) VALUES
-('admin', 'admin1', 'Achmad Jamaah Firdaus', 'Administrator'),
-('member', 'member1', 'member', 'member');
+INSERT INTO `user` (`email`, `password`, `nama`, `status`) VALUES
+('admin@gmail.com', 'admin1', 'Achmad Jamaah Firdaus', 'Administrator'),
+('member@gmail.com', 'member1', 'member1', 'member');
 
 --
 -- Indexes for dumped tables
