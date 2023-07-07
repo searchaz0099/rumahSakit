@@ -44,14 +44,14 @@
                 ?>
                 <script language script="JavaScript">
                 alert('Anda Login Sebagai <?php echo $row['email']; ?>');
-                document.location='../admin.php';
+                document.location='admin.php';
                 </script>
                 <?php
             }else {
                 ?>
                 <script language script="JavaScript">
                 alert('Anda Login Sebagai <?php echo $row['username']; ?>');
-                document.location='../member.php';
+                document.location='member.php';
                 </script>
                 <?php
             }
