@@ -17,8 +17,7 @@
                     <input class="input" type="text" placeholder="email" name='email'>
                     <input class="input" type="password" placeholder="passsword" name='password'>
                     <input class="input" type="text" placeholder="nama" name='nama'>
-                    <input class="input" type="text" placeholder="status" name='status'>
-                    <input class="login" type="submit" name="create" placeholder="Create">
+                    <input class="create" type="submit" name="create" placeholder="Create">
                     <p class="message">Already registered? <a href="#">Sign In</a></p>
                 </form>
             </div>
@@ -41,8 +40,10 @@
     $create = $_POST['create'];
 
     $login_query = "SELECT * FROM user WHERE email = '$email' and password = '$password'";
-    $query = mysqli_query($conn, $login_query);
-    $row = mysqli_fetch_array($query);
+    $create_query = "INSERT INTO USER (email, passsword, nama, status) VALUES ('$email', '$password', '$nama','member')";
+    $query_login = mysqli_query($conn, $login_query);
+    $query_create = mysqli_query($conn,$create_query);
+    $row_ = mysqli_fetch_array($query_login);
     if($login){
         if($row['email'] != ""){
             $_SESSION['email'] = $row[0];
@@ -61,6 +62,21 @@
                 document.location = '../member.php';
             </script>
             <?php
+        }
+    }if($create){
+        if('email' == ""){
+            echo 'email tidak boleh kosong dan harus sesuai format';
+        }if('password' == ""){
+            echo 'password tidak boleh kosong';
+        }if('nama' == ""){
+            echo 'nama tidak boleh kosong';
+        }else{
+            mysqli_query($conn,$create_query);
+            echo "
+            <script>
+                alert('akun baru telah dibuat')'
+                document.location.href='Log-Res.php';
+            </script>";
         }
     }
 ?>

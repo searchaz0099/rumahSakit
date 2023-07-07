@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $alamat = $_POST['alamat'];
 
     $query = "INSERT INTO pasien (nama_pasien, jenis_kelamin, alamat, umur, keluhan, ruang) VALUES ('$nama', '$jenis_kelamin', 
-    $umur, '$keluhan', '$ruang', '$alamat')";
+    '$umur', '$keluhan', '$ruang', '$alamat')";
 
     if (mysqli_query($conn, $query)) {
         header('Location: index.php?message=success');
