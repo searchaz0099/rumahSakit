@@ -1,8 +1,5 @@
 <html>
     <link rel="stylesheet" href="../css/login.css">
-    <?php
-        $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
-    ?>
 
     <body>
         <div class="login-page">
@@ -13,13 +10,13 @@
                     <input class="login" type="submit" name="login" placeholder="Login">
                     <p class="message">Not registered? <a href="#">Create an account</a></p>
                 </form>
-                <form class="register-form" method="post" action="lll.php">
+                <!-- <form class="register-form" method="post" action=".php">
                     <input class="input" type="text" placeholder="email" name='email'>
                     <input class="input" type="password" placeholder="passsword" name='password'>
                     <input class="input" type="text" placeholder="nama" name='nama'>
                     <input class="create" type="submit" name="create" placeholder="Create">
                     <p class="message">Already registered? <a href="#">Sign In</a></p>
-                </form>
+                </form> -->
             </div>
         </div>
     </body>
@@ -30,6 +27,7 @@
 <?php
     session_start();
     error_reporting(E_ALL & E_NOTICE & E_DEPRECATED);
+    $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
 
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -42,12 +40,12 @@
     $login_query = "SELECT * FROM user WHERE email = '$email' and password = '$password'";
     $create_query = "INSERT INTO USER (email, passsword, nama, status) VALUES ('$email', '$password', '$nama','member')";
     $query_login = mysqli_query($conn, $login_query);
-    $query_create = mysqli_query($conn,$create_query);
+    $query_create = mysqli_query($conn, $create_query);
     $row_ = mysqli_fetch_array($query_login);
     if($login){
         if($row['email'] != ""){
-            $_SESSION['email'] = $row[0];
-            $_SESSION['status'] = $row[3];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['status'] = $row['status'];
             if($row['status'] == 'Administrator');
             ?>
             <script language script="JavaScript">
@@ -62,21 +60,6 @@
                 document.location = '../member.php';
             </script>
             <?php
-        }
-    }if($create){
-        if('email' == ""){
-            echo 'email tidak boleh kosong dan harus sesuai format';
-        }if('password' == ""){
-            echo 'password tidak boleh kosong';
-        }if('nama' == ""){
-            echo 'nama tidak boleh kosong';
-        }else{
-            mysqli_query($conn,$create_query);
-            echo "
-            <script>
-                alert('akun baru telah dibuat')'
-                document.location.href='Log-Res.php';
-            </script>";
         }
     }
 ?>

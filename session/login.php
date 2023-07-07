@@ -1,7 +1,7 @@
 <form method='post' action='login.php'>
     <center class="login-content"><h2>Login</h2>
         <p align='center'>
-        username : <input type='text' name='username' class="username"><br>
+        username : <input type='text' name='email' class="username"><br>
         password : <input type='password' name='password' class="passworrd"><br>
         <input type='submit' name='submit'>
         </p>
@@ -12,23 +12,23 @@
     error_reporting(E_ALL & E_NOTICE & E_DEPRECATED);
     $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
 
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
     $submit = $_POST['submit'];
 
     if ($submit){
-        $sql = "SELECT * FROM user WHERE username = '$username' and password = '$password'";
+        $sql = "SELECT * FROM user WHERE email = '$email' and password = '$password'";
         $query = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($query);
-        if ($row['username'] != ""){
+        if ($row['email'] != ""){
             //berhasil login
-            $_SESSION['username'] = $row['username'];
+            $_SESSION['email'] = $row['email'];
             $_SESSION['status'] = $row['status'];
             if ($row['status']=='Administrator') {
                 $_SESSION['status']='Administrator';
                 ?>
                 <script language script="JavaScript">
-                alert('Anda Login Sebagai <?php echo $row['username']; ?>');
+                alert('Anda Login Sebagai <?php echo $row['email']; ?>');
                 document.location='admin.php';
                 </script>
                 <?php
