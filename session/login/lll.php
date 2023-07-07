@@ -8,7 +8,6 @@
                     <input class="input" type="text" placeholder="email" name='email'>
                     <input class="input" type="password" placeholder="passsword" name='password'>
                     <input class="login" type="submit" name="login" placeholder="Login">
-                    <p class="message">Not registered? <a href="#">Create an account</a></p>
                 </form>
                 <!-- <form class="register-form" method="post" action=".php">
                     <input class="input" type="text" placeholder="email" name='email'>
