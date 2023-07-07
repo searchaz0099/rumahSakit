@@ -2,6 +2,8 @@
 $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
 ?>
 
+<link rel="stylesheet" href="../css/style.css">
+
 <body> 
         <h1 style="text-align: center;">Admin Page</h1>
     <hr>
@@ -10,12 +12,15 @@ $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
         <form>
             <table>
                 <tr>
-                    <td><button>
-                        <a target="_blank" href="pasien.php">Data Pasien</a>
-                    </button></td>
-                    <td><button>
-                        <a target="_blank" href="layanan.php">Data Layanan</a>
-                    </button></td>
+                    <td><button class="login">
+                        <a target="_blank" href="../../CRUD/pasien/index.php">Data Pasien</a>
+                    </button>
+                    <button class="login">
+                        <a target="_blank" href="../../CRUD/dokter/index.php">Data Dokter</a>
+                    </button>
+                    <button class="login">
+                        <a target="_blank" href="../../CRUD/layanan/layanan_edit.php">Data Layanan</a>
+                    </button>
                 </tr>
             </table>
         </form>
@@ -24,11 +29,10 @@ $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
         <h3>Data User</h3>
             <table border='1' width='70%' style="text-align: center;">
                 <tr>
-                    <td width='20%'><b>Username</b></td>
+                    <td width='20%'><b>Email</b></td>
                     <td width='20%'><b>Password</b></td>
                     <td width='20%'><b>Nama</b></td>
                     <td width='20%'><b>Status</b></td>
-                    <td width='30%'><b>Pilihan</b></td>
                 </tr>
                 <?php 
                     $tampil = "SELECT * FROM user WHERE status = 'member' ";
@@ -36,16 +40,12 @@ $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
                 ?>
                 <?php 
                     while($data = mysqli_fetch_row($hasil)){
-                ?>
+                ?> 
                     <tr>
                         <td><?= $data[0] ?></td>
                         <td><?= $data[1] ?></td>
                         <td><?= $data[2] ?></td>
                         <td><?= $data[3] ?></td>
-                        <td>
-                            <a href=#>Ubah Data</a> |
-                            <a href=#>Hapus Data</a>
-                        </td>
                     </tr>
                 <?php } ?>
             </table>

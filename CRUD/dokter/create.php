@@ -1,11 +1,12 @@
 <?php
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conn = mysqli_connect('localhost', 'root', '', 'rumahsakit');
 
-    $query = "DELETE FROM pasien WHERE id_pasien = $id";
+    $nip = $_POST['nip'];
+    $nama = $_POST['nama'];
+    $spesialis = $_POST['spesialis'];
+
+    $query = "INSERT INTO dokter (nip, nama_dokter, spesialis) VALUES ('$nip', '$nama', '$spesialis')";
 
     if (mysqli_query($conn, $query)) {
         header('Location: index.php?message=success');

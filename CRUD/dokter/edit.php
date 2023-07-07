@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Edit Data Pasien</title>
+    <title>Edit Data Dokter</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,22 +53,18 @@
     </style>
 </head>
 <body>
-    <h2>Edit Data Pasien</h2>
+    <h2>Edit Data Dokter</h2>
 
     <?php
     $conn = mysqli_connect('localhost', 'root', '', 'rumahsakit');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id = $_POST['id'];
+        $nip = $_POST['nip'];
         $nama = $_POST['nama'];
-        $jenis_kelamin = $_POST['jenis_kelamin'];
-        $umur = $_POST['umur'];
-        $keluhan = $_POST['keluhan'];
-        $ruang = $_POST['ruang'];
-        $alamat = $_POST['alamat'];
+        $spesialis = $_POST['spesialis'];
 
-        $query = "UPDATE pasien SET nama_pasien='$nama', jenis_kelamin='$jenis_kelamin', umur=$umur, 
-        alamat='$alamat', keluhan='$keluhan', ruang='$ruang' WHERE id_pasien=$id";
+        $query = "UPDATE dokter SET nip='$nip', nama_dokter='$nama', spesialis='$spesialis', HERE id_dokter=$id";
 
         if (mysqli_query($conn, $query)) {
             header("Location: index.php?message=success");
@@ -80,39 +76,27 @@
     } else {
         $id = $_GET['id'];
 
-        $query = mysqli_query($conn, "SELECT * FROM pasien WHERE id_pasien=$id");
+        $query = mysqli_query($conn, "SELECT * FROM dokter WHERE id_dokter=$id");
         $row = mysqli_fetch_assoc($query);
     }
     ?>
 
     <form action="" method="post">
         <input type="hidden" name="id" value="<?php echo $row['id_pasien']; ?>">
-        <label for="nama">Nama Pasien:</label>
+        <label for="nip">NIP:</label>
         <br>
-        <input type="text" name="nama" value="<?php echo $row['nama_pasien']; ?>" required>
+        <input type="text" name="nip" value="<?php echo $row['nip']; ?>" required>
         <br><br>
-        <label for="jenis_kelamin">Jenis Kelamin:</label>
+        <label for="nama">Nama Dokter:</label>
         <br>
-        <select name="jenis_kelamin" required>
+        <input type="text" name="nama" value="<?php echo $row['nama_dokter']; ?>" required>
+        <br><br>
+        <label for="spesialis">Spesialis:</label>
+        <br>
+        <select name="spesialis" required>
             <option value="Laki-laki" <?php if ($row['jenis_kelamin'] == 'Laki-laki') echo 'selected'; ?>>Laki-laki</option>
             <option value="Perempuan" <?php if ($row['jenis_kelamin'] == 'Perempuan') echo 'selected'; ?>>Perempuan</option>
         </select>
-        <br><br>
-        <label for="umur">Umur:</label>
-        <br>
-        <input type="number" name="umur" min="0" value="<?php echo $row['umur']; ?>" required>
-        <br><br>
-        <label for="alamat">Alamat:</label>
-        <br>
-        <textarea name="alamat" rows="4" required><?php echo $row['alamat']; ?></textarea>
-        <br><br>
-        <label for="keluhan">Keluhan:</label>
-        <br>
-        <textarea name="keluhan" rows="4" required><?php echo $row['keluhan']; ?></textarea>
-        <br><br>
-        <label for="ruang">Ruang:</label>
-        <br>
-        <input type="text" name="ruang" value="<?php echo $row['ruang']; ?>" required>
         <br><br>
         <input type="submit" value="Simpan">
     </form>
