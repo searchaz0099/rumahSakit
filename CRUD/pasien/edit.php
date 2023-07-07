@@ -102,6 +102,10 @@
         <br>
         <input type="number" name="umur" min="0" value="<?php echo $row['umur']; ?>" required>
         <br><br>
+        <label for="alamat">Alamat:</label>
+        <br>
+        <textarea name="alamat" rows="4" required><?php echo $row['alamat']; ?></textarea>
+        <br><br>
         <label for="keluhan">Keluhan:</label>
         <br>
         <textarea name="keluhan" rows="4" required><?php echo $row['keluhan']; ?></textarea>
@@ -109,10 +113,6 @@
         <label for="ruang">Ruang:</label>
         <br>
         <input type="text" name="ruang" value="<?php echo $row['ruang']; ?>" required>
-        <br><br>
-        <label for="alamat">Alamat:</label>
-        <br>
-        <textarea name="alamat" rows="4" required><?php echo $row['alamat']; ?></textarea>
         <br><br>
         <input type="submit" value="Simpan">
     </form>
