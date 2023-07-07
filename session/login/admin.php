@@ -16,6 +16,9 @@ $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
                         <a target="_blank" href="../../CRUD/pasien/index.php">Data Pasien</a>
                     </button>
                     <button class="login">
+                        <a target="_blank" href="../../CRUD/dokter/index.php">Data Dokter</a>
+                    </button></td>
+                    <button class="login">
                         <a target="_blank" href="../../CRUD/layanan/layanan_edit.php">Data Layanan</a>
                     </button></td>
                 </tr>
