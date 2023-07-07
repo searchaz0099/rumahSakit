@@ -70,6 +70,11 @@
         $tglmasuk = $_POST['tglmasuk'];
         $tglkeluar = $_POST['tglkeluar'];
 
+        $query = "SELECT keluhan, ruang FROM pasien WHERE nama_pasien = '$nama_pasien'";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
+        $keluhan = $row['keluhan'];
+
         $query = "UPDATE layanan SET nama_pasien='$nama_pasien', nama_dokter='$nama_dokter', keluhan='$keluhan', 
         ruang='$ruang', tanggal_masuk='$tglmasuk', tanggal_keluar='$tglkeluar' WHERE id_layanan='$id'";
 
@@ -95,7 +100,7 @@
         $sql = "select * from pasien";
         $retval = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($retval)) {
-            echo "<input name='nama_pasien' type='radio' value='$row[nama_pasien]'>$row[nama_pasien]</input>";
+            echo "<input name='nama_pasien' type='radio' value='$row[nama_pasien]' data-keluhan='$row[keluhan]'>$row[nama_pasien]</input>";
         } ?>
         <br><br>
         <label for="nama_dokter">Nama Dokter:</label>
@@ -104,14 +109,6 @@
         $retval = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($retval)) {
             echo "<input name='nama_dokter' type='radio' value='$row[nama_dokter]'>$row[nama_dokter]</input>";
-        } ?>
-        <br><br>
-        <label for="keluhan">Keluhan:</label>
-        <?php
-        $sql = "select * from pasien";
-        $retval = mysqli_query($conn, $sql);
-        while ($row = mysqli_fetch_array($retval)) {
-            echo "<input name='keluhan' type='radio' value='$row[keluhan]'>$row[keluhan]</input>";
         } ?>
         <br><br>
         <label for="ruang">Ruang:</label>
