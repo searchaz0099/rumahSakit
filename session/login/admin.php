@@ -17,10 +17,10 @@ $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
                     </button>
                     <button class="login">
                         <a target="_blank" href="../../CRUD/dokter/index.php">Data Dokter</a>
-                    </button></td>
+                    </button>
                     <button class="login">
                         <a target="_blank" href="../../CRUD/layanan/layanan_edit.php">Data Layanan</a>
-                    </button></td>
+                    </button>
                 </tr>
             </table>
         </form>
@@ -29,7 +29,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'rumahSakit');
         <h3>Data User</h3>
             <table border='1' width='70%' style="text-align: center;">
                 <tr>
-                    <td width='20%'><b>Username</b></td>
+                    <td width='20%'><b>Email</b></td>
                     <td width='20%'><b>Password</b></td>
                     <td width='20%'><b>Nama</b></td>
                     <td width='20%'><b>Status</b></td>

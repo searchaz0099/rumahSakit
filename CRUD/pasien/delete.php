@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
 
     $conn = mysqli_connect('localhost', 'root', '', 'rumahsakit');
 
-    $query = "DELETE FROM pasien WHERE id_dokter = $id";
+    $query = "DELETE FROM pasien WHERE id_pasien = $id";
 
     if (mysqli_query($conn, $query)) {
         header('Location: index.php?message=success');
