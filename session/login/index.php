@@ -50,7 +50,7 @@
             }else {
                 ?>
                 <script language script="JavaScript">
-                alert('Anda Login Sebagai <?php echo $row['username']; ?>');
+                alert('Anda Login Sebagai <?php echo $row['email']; ?>');
                 document.location='member.php';
                 </script>
                 <?php

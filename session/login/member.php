@@ -2,7 +2,7 @@
     <head>
         <title>Daftar Layanan Rumah Sakit</title>
     </head>
-
+    <link rel="stylesheet" href="../css/style.css">
     <?php
         $conn = mysqli_connect('localhost','root','','rumahSakit');
     ?>
