@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>CRUD Dokter</title>
     <style>
@@ -9,6 +10,7 @@
 
         h2 {
             color: #333;
+            text-align: center;
         }
 
         table {
@@ -16,7 +18,8 @@
             border-collapse: collapse;
         }
 
-        table th, table td {
+        table th,
+        table td {
             padding: 8px;
             text-align: left;
             border-bottom: 1px solid #ddd;
@@ -61,62 +64,72 @@
         .error-msg {
             color: red;
         }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
     </style>
 </head>
+
 <body>
-    <h2>Data Dokter</h2>
-
-    <?php
-    // Menampilkan pesan sukses atau pesan error
-    if (isset($_GET['message'])) {
-        if ($_GET['message'] == 'success') {
-            echo '<p class="success-msg">Data berhasil disimpan.</p>';
-        } elseif ($_GET['message'] == 'error') {
-            echo '<p class="error-msg">Terjadi kesalahan saat menyimpan data.</p>';
-        }
-    }
-    ?>
-
-    <form action="create.php" method="post">
-        <label for="nama">NIP:</label>
-        <br>
-        <input type="text" name="nip" required>
-        <br><br>
-        <label for="nama">Nama Dokter:</label>
-        <br>
-        <input type="text" name="nama" required>
-        <br>
-        <label for="nama">Spesialis:</label>
-        <input type="text" name="spesialis" required>
-        <br>
-        <input type="submit" value="Simpan">
-    </form>
-
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>NIP</th>
-            <th>Nama</th>
-            <th>Spesialis</th>
-        </tr>
+    <div class="container">
+        <h2>Data Dokter</h2>
 
         <?php
-        $conn = mysqli_connect('localhost', 'root', '', 'rumahsakit');
-
-        $query = mysqli_query($conn, "SELECT * FROM dokter");
-
-        while ($row = mysqli_fetch_assoc($query)) {
-            echo '<tr>';
-            echo '<td>' . $row['id_dokter'] . '</td>';
-            echo '<td>' . $row['nip'] . '</td>';
-            echo '<td>' . $row['nama_dokter'] . '</td>';
-            echo '<td>' . $row['spesialis'] . '</td>';
-            echo '<td><a href="edit.php?id=' . $row['id_dokter'] . '">Edit</a> | <a href="delete.php?id=' . $row['id_dokter'] . '">Hapus</a></td>';
-            echo '</tr>';
+        // Menampilkan pesan sukses atau pesan error
+        if (isset($_GET['message'])) {
+            if ($_GET['message'] == 'success') {
+                echo '<p class="success-msg">Data berhasil disimpan.</p>';
+            } elseif ($_GET['message'] == 'error') {
+                echo '<p class="error-msg">Terjadi kesalahan saat menyimpan data.</p>';
+            }
         }
-
-        mysqli_close($conn);
         ?>
-    </table>
+
+        <form action="create.php" method="post">
+            <label for="nama">NIP:</label>
+            <br>
+            <input type="text" name="nip" required>
+            <br><br>
+            <label for="nama">Nama Dokter:</label>
+            <br>
+            <input type="text" name="nama" required>
+            <br>
+            <label for="nama">Spesialis:</label>
+            <input type="text" name="spesialis" required>
+            <br>
+            <input type="submit" value="Simpan">
+        </form>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>NIP</th>
+                <th>Nama</th>
+                <th>Spesialis</th>
+            </tr>
+
+            <?php
+            $conn = mysqli_connect('localhost', 'root', '', 'rumahsakit');
+
+            $query = mysqli_query($conn, "SELECT * FROM dokter");
+
+            while ($row = mysqli_fetch_assoc($query)) {
+                echo '<tr>';
+                echo '<td>' . $row['id_dokter'] . '</td>';
+                echo '<td>' . $row['nip'] . '</td>';
+                echo '<td>' . $row['nama_dokter'] . '</td>';
+                echo '<td>' . $row['spesialis'] . '</td>';
+                echo '<td><a href="edit.php?id=' . $row['id_dokter'] . '">Edit</a> | <a href="delete.php?id=' . $row['id_dokter'] . '">Hapus</a></td>';
+                echo '</tr>';
+            }
+
+            mysqli_close($conn);
+            ?>
+        </table>
+    </div>
 </body>
+
 </html>
