@@ -87,7 +87,7 @@
         $sql = "select * from pasien";
         $retval = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($retval)) {
-            echo "<input name='nama_pasien' type='radio' value='$row[nama_pasien]' data-keluhan='$row[keluhan]' data-ruang='$row[ruang]'>$row[nama_pasien]</input>";
+            echo "<input name='nama_pasien' type='radio' value='$row[nama_pasien]'>$row[nama_pasien]</input>";
         } ?>
         <br><br>
         <label for="nama_dokter">Nama Dokter:</label>
@@ -96,6 +96,22 @@
         $retval = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($retval)) {
             echo "<input name='nama_dokter' type='radio' value='$row[nama_dokter]'>$row[nama_dokter]</input>";
+        } ?>
+        <br><br>
+        <label for="keluhan">keluhan:</label>
+        <?php
+        $sql = "select * from pasien";
+        $retval = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_array($retval)) {
+            echo "<input name='keluhan' type='radio' value='$row[keluhan]'>$row[keluhan]</input>";
+        } ?>
+        <br><br>
+        <label for="ruang">Ruang:</label>
+        <?php
+        $sql = "select * from pasien";
+        $retval = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_array($retval)) {
+            echo "<input name='ruang' type='radio' value='$row[ruang]'>$row[ruang]</input>";
         } ?>
         <br><br>
         <label for="tglmasuk">Tanggal Masuk:</label>&nbsp;
