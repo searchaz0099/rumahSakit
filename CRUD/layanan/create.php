@@ -10,12 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tglmasuk = $_POST['tglmasuk'];
     $tglkeluar = $_POST['tglkeluar'];
 
-    $query = "SELECT keluhan, ruang FROM pasien WHERE nama_pasien = '$nama_pasien'";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
-    $keluhan = $row['keluhan'];
-    $ruang = $row['ruang'];
-
     $query = "INSERT INTO layanan VALUES ('$id_pasien' ,'$nama_pasien', '$nama_dokter','$keluhan', '$ruang', '$tglmasuk', '$tglkeluar')";
 
     if (mysqli_query($conn, $query)) {
