@@ -64,7 +64,7 @@
         $nama = $_POST['nama'];
         $spesialis = $_POST['spesialis'];
 
-        $query = "UPDATE dokter SET nip='$nip', nama_dokter='$nama', spesialis='$spesialis', HERE id_dokter=$id";
+        $query = "UPDATE dokter SET nip='$nip', nama_dokter='$nama', spesialis='$spesialis' WHERE id_dokter=$id";
 
         if (mysqli_query($conn, $query)) {
             header("Location: index.php?message=success");
@@ -82,7 +82,7 @@
     ?>
 
     <form action="" method="post">
-        <input type="hidden" name="id" value="<?php echo $row['id_pasien']; ?>">
+        <input type="hidden" name="id" value="<?php echo $row['id_dokter']; ?>">
         <label for="nip">NIP:</label>
         <br>
         <input type="text" name="nip" value="<?php echo $row['nip']; ?>" required>
@@ -93,10 +93,7 @@
         <br><br>
         <label for="spesialis">Spesialis:</label>
         <br>
-        <select name="spesialis" required>
-            <option value="Laki-laki" <?php if ($row['jenis_kelamin'] == 'Laki-laki') echo 'selected'; ?>>Laki-laki</option>
-            <option value="Perempuan" <?php if ($row['jenis_kelamin'] == 'Perempuan') echo 'selected'; ?>>Perempuan</option>
-        </select>
+        <input type="text" name="spesialis" value="<?php echo $row['spesialis']; ?>" required>
         <br><br>
         <input type="submit" value="Simpan">
     </form>

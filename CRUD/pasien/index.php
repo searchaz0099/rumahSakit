@@ -138,14 +138,14 @@
 
             while ($row = mysqli_fetch_assoc($query)) {
                 echo '<tr>';
-                echo '<td>' . $row['id'] . '</td>';
-                echo '<td>' . $row['nama'] . '</td>';
+                echo '<td>' . $row['id_pasien'] . '</td>';
+                echo '<td>' . $row['nama_pasien'] . '</td>';
                 echo '<td>' . $row['jenis_kelamin'] . '</td>';
                 echo '<td>' . $row['umur'] . '</td>';
                 echo '<td>' . $row['keluhan'] . '</td>';
                 echo '<td>' . $row['ruang'] . '</td>';
                 echo '<td>' . $row['alamat'] . '</td>';
-                echo '<td><a href="edit.php?id=' . $row['id'] . '">Edit</a> | <a href="delete.php?id=' . $row['id'] . '">Hapus</a></td>';
+                echo '<td><a href="edit.php?id=' . $row['id_pasien'] . '">Edit</a> | <a href="delete.php?id=' . $row['id_pasien'] . '">Hapus</a></td>';
                 echo '</tr>';
             }
 
