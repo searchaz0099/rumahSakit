@@ -55,7 +55,7 @@
 </head>
 
 <body>
-    <h2>Edit Data Layanan Pasien</h2>
+    <h2>Edit Data Layanan</h2>
 
     <?php
     $conn = mysqli_connect('localhost', 'root', '', 'rumahsakit');
