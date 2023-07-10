@@ -93,10 +93,7 @@
         <br><br>
         <label for="spesialis">Spesialis:</label>
         <br>
-        <select name="spesialis" required>
-            <option value="Laki-laki" <?php if ($row['jenis_kelamin'] == 'Laki-laki') echo 'selected'; ?>>Laki-laki</option>
-            <option value="Perempuan" <?php if ($row['jenis_kelamin'] == 'Perempuan') echo 'selected'; ?>>Perempuan</option>
-        </select>
+        <input type="text" name="spesialis" value="<?php echo $row['spesialis']; ?>" required>
         <br><br>
         <input type="submit" value="Simpan">
     </form>
