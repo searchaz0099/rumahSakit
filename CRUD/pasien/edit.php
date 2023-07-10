@@ -89,7 +89,7 @@
         } else {
             $id = $_GET['id'];
 
-            $query = mysqli_query($conn, "SELECT * FROM pasien WHERE id=$id");
+            $query = mysqli_query($conn, "SELECT * FROM pasien WHERE id_pasien=$id");
             $row = mysqli_fetch_assoc($query);
         }
         ?>
