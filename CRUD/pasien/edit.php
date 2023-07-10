@@ -77,7 +77,7 @@
             $ruang = $_POST['ruang'];
             $alamat = $_POST['alamat'];
 
-            $query = "UPDATE pasien SET nama='$nama', jenis_kelamin='$jenis_kelamin', umur=$umur, keluhan='$keluhan', ruang='$ruang', alamat='$alamat' WHERE id=$id";
+            $query = "UPDATE pasien SET nama='$nama', jenis_kelamin='$jenis_kelamin', umur='$umur', keluhan='$keluhan', ruang='$ruang', alamat='$alamat' WHERE id=$id";
 
             if (mysqli_query($conn, $query)) {
                 header("Location: index.php?message=success");
