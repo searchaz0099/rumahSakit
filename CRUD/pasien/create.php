@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $ruang = $_POST['ruang'];
     $alamat = $_POST['alamat'];
 
-    $query = "INSERT INTO pasien (nama_pasien, jenis_kelamin, alamat, umur, keluhan, ruang) VALUES ('$nama', '$jenis_kelamin', 
+    $query = "INSERT INTO pasien (nama_pasien, jenis_kelamin, umur, keluhan, ruang, alamat) VALUES ('$nama', '$jenis_kelamin', 
     '$umur', '$keluhan', '$ruang', '$alamat')";
 
     if (mysqli_query($conn, $query)) {
